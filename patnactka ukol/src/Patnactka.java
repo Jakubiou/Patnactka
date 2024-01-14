@@ -31,7 +31,7 @@ public class Patnactka extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(this, "0 represents the place of an empty field!");
 
         initializeTiles();
-        //shuffleTiles();
+        shuffleTiles();
 
         for (int i = 0; i < tileCount; i++) {
             JButton button = new JButton(String.valueOf(tileList.get(i)));
