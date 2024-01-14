@@ -5,44 +5,46 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Patnactka extends JFrame implements ActionListener {
+public class GamePanel extends JPanel implements ActionListener {
+
     private JPanel panel;
     private JButton[] buttons;
     private final int size = 4;
     private final int tileCount = size * size;
     private ArrayList<Integer> tileList;
 
-    /**
-     * Class constructor. Sets the basic properties of the window.
-     * Initializes the game panel, buttons, and card list.
-     * Displays a welcome dialog with instructions.
-     */
-    public Patnactka() {
-        setTitle("Patnáctka");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 500);
-        setResizable(false);
-        setLocationRelativeTo(null);
-
-        panel = new JPanel(new GridLayout(size, size));
+    public GamePanel() {
+        setLayout(new GridLayout(size, size));
         buttons = new JButton[tileCount];
         tileList = new ArrayList<>();
 
-        JOptionPane.showMessageDialog(this, "0 represents the place of an empty field!");
+    panel =new
 
-        initializeTiles();
-        //shuffleTiles();
+    JPanel(new GridLayout(size, size));
+    buttons =new JButton[tileCount];
+    tileList =new ArrayList<>();
 
-        for (int i = 0; i < tileCount; i++) {
-            JButton button = new JButton(String.valueOf(tileList.get(i)));
-            button.setFont(new Font("Arial", Font.PLAIN, 24));
-            buttons[i] = button;
-            button.addActionListener(this);
-            panel.add(button);
-        }
-        add(panel);
-        setVisible(true);
+    initializeTiles();
+
+    shuffleTiles();
+
+        for(
+    int i = 0;
+    i<tileCount;i++)
+
+    {
+        JButton button = new JButton(String.valueOf(tileList.get(i)));
+        button.setFont(new Font("Arial", Font.PLAIN, 24));
+        buttons[i] = button;
+        button.addActionListener(this);
+        panel.add(button);
     }
+
+    add(panel);
+
+    setVisible(true);
+
+}
 
     /**
      * Initializes the list of tiles with numbers from 1 to tileCount and marks an empty tile with 0.
@@ -75,7 +77,7 @@ public class Patnactka extends JFrame implements ActionListener {
         Collections.sort(sortedTiles);
 
         if (currentTiles.equals(sortedTiles)) {
-            JOptionPane.showMessageDialog(this, "Congratulations! You've won!");
+            JOptionPane.showMessageDialog(this, "Gratuluji! Vyhráli jste!");
         }
     }
 
@@ -128,5 +130,4 @@ public class Patnactka extends JFrame implements ActionListener {
         }
     }
 }
-
 
